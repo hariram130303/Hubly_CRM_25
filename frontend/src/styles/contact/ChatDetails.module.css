@@ -1,0 +1,145 @@
+.wrapper {
+  height: 100%;
+  padding: 18px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: #f5f6f8;
+}
+
+/* HEADER */
+.chatHeader {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-bottom: 14px;
+}
+
+.chatAvatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+
+.chatTitle {
+  font-size: 16px;
+  color: #666;
+  flex-grow: 1;
+}
+
+.linkIcon {
+  cursor: pointer;
+}
+
+/* SECTION TITLE */
+.sectionTitle {
+  font-size: 14px;
+  font-weight: 500;
+  color: #184E7F;
+  margin-bottom: 10px;
+}
+
+/* INPUT WITH ICON */
+.inputBox {
+  position: relative;     /* ✔ Needed for absolute icon */
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+}
+
+.inputIcon {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #808080;
+  font-size: 14px;
+}
+
+.inputRight {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #808080;
+  font-size: 13px;
+}
+
+.input {
+  width: 100%;
+  padding: 10px 36px;
+  border-radius: 13px;
+  color: #808080;
+  background: #fff;
+  border: 1px solid #d1d5db;
+  font-size: 13px;
+}
+
+/* DROPDOWN */
+.dropdown {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 13px;
+  border: 1px solid #e5e7eb;
+  background: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.dropdownLeft {
+  display: flex;
+  align-items: center;
+  color: #808080;
+  gap: 10px;
+}
+
+.dropdownIcon {
+  font-size: 16px;
+  color: #808080;
+}
+
+.dropdownCaret {
+  font-size: 12px;
+}
+
+/* EXPANDED LIST */
+.dropdownList {
+  margin-top: 6px;
+  color: #808080;
+  border: 1px solid #e5e7eb;
+  border-radius: 13px;
+  background: #fff;
+  overflow: hidden;
+}
+
+.dropdownItem {
+  padding: 10px;
+  border-bottom: 1px solid #e5e7eb;
+  display: flex;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.dropdownItem:last-child {
+  border-bottom: none;
+}
+
+.dropdownItem:hover {
+  background: #f3f4f6;
+}
+
+.dropdownAvatar {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+}
+
+.empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: #999;
+}

@@ -1,0 +1,195 @@
+.layout {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+}
+.pageWrapper {
+  flex: 1;
+  padding: 20px 30px;
+  font-family: "Inter", sans-serif;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.tableWrapper {
+  background: #fff;
+  padding: 16px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th {
+  border-top: 2px solid #6A6A6A;
+  border-bottom: 2px solid #6A6A6A;
+  text-align: left;
+  padding: 15px;
+  color: #3e3e3e;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.table td {
+  padding: 15px;
+  border-bottom: 1px solid #E2E8F0;
+  font-size: 14px;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+}
+.actions span {
+  cursor: pointer;
+  margin-right: 12px;
+  font-size: 18px;
+}
+
+.addBtn {
+  margin-top: 18px;
+  background: #184E7F;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  float: right;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+/* White Circle with + icon */
+.addBtnIcon {
+  width: 20px;
+  height: 20px;
+  border: 2px solid white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  font-weight: 300;
+}
+
+
+
+/* ---------- MODALS ---------- */
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.35);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modalBox {
+  width: 480px;
+  background: white;
+  padding: 26px;
+  border-radius: 12px;
+}
+
+.modalSubtitle {
+  color: #777;
+  font-size: 13px;
+  margin-bottom: 14px;
+}
+
+.input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  margin-bottom: 12px;
+}
+
+.input::placeholder {
+  color: #bbb;
+}
+
+.modalActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.cancelBtn {
+  background: #f4f4f4;
+  padding: 10px 22px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
+
+.avatarUploadWrapper {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 16px;
+}
+
+.avatarPreview {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #f1f1f1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.avatarImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.uploadBtn {
+  padding: 8px 14px;
+  background: #184E7F;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.avatarPlaceholder {
+  font-size: 10px;
+  color: #999;
+}
+.saveBtn, .confirmBtn {
+  background: #184e7f;
+  padding: 10px 22px;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.deleteModal {
+  width: 380px;
+  background: white;
+  padding: 22px;
+  border-radius: 12px;
+}
+
+.deleteMsg {
+  font-size: 16px;
+  margin-bottom: 18px;
+}

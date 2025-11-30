@@ -1,0 +1,141 @@
+.layout {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* Main content wrapper */
+.wrapper {
+  flex: 1;
+  padding: 25px 35px;
+  max-width: 1000px;
+  font-family: "Inter", sans-serif;
+  overflow: visible;     /* <- IMPORTANT */
+}
+
+/* MAIN PAGE WRAPPER */
+.wrapper {
+  padding: 25px 35px;
+  max-width: 880px;
+  font-family: "Poppins", sans-serif;
+}
+
+/* PAGE TITLE */
+.pageTitle {
+  color: #6A6B70;
+  font-size: 22px;
+  font-weight: 500;
+  margin-bottom: 25px;
+}
+
+/* SECTION TITLE */
+.sectionTitle {
+  font-size: 22px;
+  font-weight: 600;
+  color: #00D907;
+  margin-bottom: 10px;
+}
+
+/* CHART CARD */
+.chartCard {
+  background: #fff;
+  border-radius: 12px;
+  padding: 25px;
+  margin-bottom: 35px;
+  position: relative;
+  height: 400px;
+}
+
+/* THREE DOTS MENU */
+.menuDots {
+  position: absolute;
+  top: 12px;
+  right: 15px;
+  font-size: 22px;
+  cursor: pointer;
+  color: #999;
+}
+
+/* METRIC ROWS */
+.metricRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 35px 0;
+}
+
+.metricTitle {
+  font-size: 22px;
+  color: #00D907;
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+
+.metricDesc {
+  font-size: 13px;
+  font-weight: 500;
+  width: 620px;
+  color: #555;
+}
+
+/* METRIC VALUE */
+.metricValue {
+  font-size: 30px;
+  font-weight: 500;
+  color: #00D907;
+}
+
+/* CIRCLE PROGRESS */
+.circleBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #F7F7F8;
+}
+
+.circleOuter {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border: 6px solid #00D907;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.circleInner {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #f4fff5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  color: #00D907;
+  font-weight: 600;
+}
+
+/* TOTAL CHATS */
+.totalChats {
+  color: #00D907;
+  font-size: 30px;
+  font-weight: 500;
+}
+
+/* RESPONSIVE */
+@media (max-width: 800px) {
+  .metricRow {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .metricDesc {
+    width: 100%;
+  }
+
+  .circleBox {
+    align-self: flex-end;
+  }
+}

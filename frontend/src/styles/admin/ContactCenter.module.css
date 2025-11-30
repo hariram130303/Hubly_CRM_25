@@ -1,0 +1,57 @@
+.layout {
+  display: grid;
+  grid-template-columns: 90px 350px 1fr 400px;
+  height: 100vh;
+  background: #f5f6f8;
+  font-family: "Inter", sans-serif;
+  overflow: hidden;
+}
+
+/* CHAT LIST (middle left) */
+.chatListPanel {
+  width: 400px;
+  background: #FAFBFC;
+  border-right: 1px solid #e5e7eb;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* CHAT WINDOW (center) */
+.chatWindowPanel {
+  background: #fff;
+  border-right: 1px solid #e5e7eb;
+  border-left: 1px solid #e5e7eb;
+  display: flex;
+  flex-direction: column;
+}
+
+/* DETAILS PANEL (right side) */
+.detailsPanel {
+  background: #FAFBFC;           /* full gray background */
+  border-left: 1px solid #e5e7eb;
+  padding: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+
+/* RESPONSIVE */
+@media (max-width: 1100px) {
+  .layout {
+    grid-template-columns: 70px 240px 1fr;
+  }
+  .detailsPanel {
+    display: none; /* collapses on tablet/phone */
+  }
+}
+
+@media (max-width: 800px) {
+  .layout {
+    grid-template-columns: 70px 1fr;
+  }
+  .chatListPanel {
+    display: none;
+  }
+}

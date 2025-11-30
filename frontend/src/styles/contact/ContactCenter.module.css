@@ -1,0 +1,85 @@
+/* =================== MAIN LAYOUT GRID =================== */
+.layout {
+  display: grid;
+  grid-template-columns: 80px 260px 1fr 320px;
+  height: 100vh;
+  background: #fff;
+  font-family: "Inter", sans-serif;
+  overflow: hidden; /* Prevent double scrollbars */
+}
+
+/* =================== SIDEBAR =================== */
+.sidebar {
+  background: #ffffff;
+  border-right: 1px solid #e5e7eb;
+}
+
+/* =================== CHAT LIST PANEL =================== */
+.chatListPanel {
+  background: #ffffff;
+  border-right: 1px solid #e5e7eb;
+  overflow-y: auto;
+}
+
+/* =================== CHAT WINDOW PANEL =================== */
+.chatWindowPanel {
+  background: #f5f6f8;
+  border-right: 1px solid #e5e7eb;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; /* Keeps header fixed */
+}
+
+/* Allow scrolling inside messages */
+.chatWindowScroll {
+  flex: 1;
+  overflow-y: auto;
+}
+
+/* =================== DETAILS PANEL =================== */
+.detailsPanel {
+  background-color: #bbb;
+  border-left: 1px solid #e5e7eb;
+  overflow-y: auto;
+}
+
+
+/* =========================================================
+   =============== RESPONSIVE BREAKPOINTS ===================
+   ========================================================= */
+
+
+/* ---------- TABLETS (Hide details panel) ---------- */
+@media (max-width: 1100px) {
+  .layout {
+    grid-template-columns: 80px 240px 1fr; /* Remove last column */
+  }
+
+  .detailsPanel {
+    display: none;
+  }
+}
+
+
+/* ---------- MOBILE (Hide details + chat list) ---------- */
+@media (max-width: 800px) {
+  .layout {
+    grid-template-columns: 70px 1fr; /* Sidebar + Chat Window */
+  }
+
+  .chatListPanel {
+    display: none;
+  }
+
+  .detailsPanel {
+    display: none;
+  }
+}
+
+
+/* ---------- VERY SMALL MOBILE ---------- */
+@media (max-width: 480px) {
+  .layout {
+    grid-template-columns: 60px 1fr;
+  }
+}

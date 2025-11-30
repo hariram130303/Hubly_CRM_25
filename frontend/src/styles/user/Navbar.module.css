@@ -1,0 +1,54 @@
+.navbar {
+  width: 100%;
+  padding: 16px 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(140deg, #f5f7fb, #e6f0ff 40%);
+  position: relative;
+  z-index: 10;
+  box-sizing: border-box;        /* PREVENT overflow */
+  border-bottom: 1px solid #f1f1f1;
+}
+
+
+.logoArea {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logoText {
+  font-weight: 600;
+  font-size: 40px;
+  color: #184E7F;
+  font-family: 'Inter';
+}
+
+.navActions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.linkButton {
+  background: transparent;
+  border: none;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  color: #36364A;
+  text-decoration: none;
+}
+
+.primaryButton {
+  padding: 10px 22px;
+  border-radius: 7px;
+  border: none;
+  background: #244779;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+}
