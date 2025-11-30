@@ -1,0 +1,209 @@
+/* Shell layout */
+.shell {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  height: 100vh;
+  background: #f5f6f8;
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+}
+
+/* ========== MAIN AREA ========== */
+
+.main {
+  background: #fff;
+  padding: 2px 32px;
+}
+
+/* top bar */
+.topBar {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+
+.pageTitle {
+  font-size: 28px;
+  font-weight: 500;
+  color: #374151;
+}
+
+.searchBox {
+  display: flex;
+  align-items: center;
+  background: #f5f6f8;
+  border-radius: 6px;
+  border: 1px solid #e5e7eb;
+  padding: 8px 10px;
+  width: 260px;
+}
+
+.searchIcon {
+  font-size: 14px;
+  margin-right: 6px;
+  opacity: 0.6;
+}
+
+.searchInput {
+  border: none;
+  outline: none;
+  width: 100%;
+  font-size: 13px;
+  color: #B6B6B6;
+  background-color: #f5f6f8;
+}
+
+.searchInput::placeholder {
+  color: #B6B6B6;
+  font-size: 15px;
+}
+
+/* tabs */
+.tabsRow {
+  display: flex;
+  gap: 16px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+.tab {
+  border: none;
+  background: transparent;
+  padding: 8px 0;
+  font-size: 19px;
+  color: #6b7280;
+  cursor: pointer;
+  position: relative;
+}
+
+.tabActive {
+  color: #184E7F;
+}
+
+.tabActive::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -4px;
+  height: 2px;
+  background: #184E7F;
+}
+
+/* ticket list card */
+.ticketsCard {
+  margin-top: 8px;
+  background: #ffffff;
+  border-radius: 4px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 4px 10px rgba(15, 23, 42, 0.04);
+  padding: 18px 20px;
+}
+
+/* header row inside ticket */
+.ticketHeaderRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ticketMetaLeft {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.statusDot {
+  width: 12px;
+  height: 12px;
+  border-radius: 999px;
+  background: #fbbf24; /* yellow */
+}
+
+.ticketTitle {
+  font-size: 13px;
+  font-weight: 500;
+  color: #111827;
+}
+
+.ticketMetaRight {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 11px;
+  color: #9ca3af;
+}
+
+.ticketTime {
+  color: #111827;
+}
+
+/* message */
+.ticketMessage {
+  margin: 14px 0 12px;
+  font-size: 13px;
+  color: #374151;
+}
+
+/* footer row */
+.ticketFooterRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.customer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.customerAvatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
+  background: #fecaca;
+}
+
+.customerName {
+  font-size: 12px;
+  font-weight: 500;
+  color: #111827;
+}
+
+.customerInfo {
+  font-size: 11px;
+  color: #6b7280;
+}
+
+/* open ticket link */
+.openTicketBtn {
+  border: none;
+  background: transparent;
+  font-size: 12px;
+  color: #2563eb;
+  cursor: pointer;
+}
+
+/* small screens */
+@media (max-width: 900px) {
+  .shell {
+    grid-template-columns: 64px 1fr;
+  }
+
+  .topBar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .searchBox {
+    width: 100%;
+  }
+
+  .ticketsCard {
+    padding: 14px;
+  }
+}

@@ -1,0 +1,136 @@
+/* ===================== BASE FOOTER ===================== */
+
+.footer {
+  background: #ffffff;
+  border-top: 1px solid #e5e7eb;
+  padding: 50px 80px;
+}
+
+.topRow {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+/* ===================== BRAND ===================== */
+
+.brand {
+  min-width: 160px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+
+.logoText {
+  font-weight: 700;
+  font-size: 20px;
+  color: #184E7F;
+}
+
+/* ============================================================
+   Figma EXACT Layout — THREE MAIN COLUMN GROUPS
+   ------------------------------------------------------------
+   LEFT:   Product + Resources
+   CENTER: Why Primer + Company
+   RIGHT:  Developers
+   ============================================================ */
+
+.columns {
+  display: flex;
+  gap: 80px;
+  flex: 1;
+}
+
+/* LEFT GROUP: Product + Resources */
+.leftGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+/* CENTER GROUP: Why Primer + Company */
+.centerGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+/* RIGHT GROUP: Developers */
+.rightGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ===================== Typography ===================== */
+
+h4 {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #111827;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  font-size: 13px;
+  color: #6b7280;
+  margin-bottom: 6px;
+}
+
+/* ===================== SOCIAL ICONS ===================== */
+
+.bottomRow {
+  margin-top: 40px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.socials {
+  display: flex;
+  gap: 18px;
+  font-size: 16px;
+  color: #6b7280;
+  cursor: pointer;
+  align-items: flex-start;
+  padding-left: 6px;
+}
+
+/* ===================== RESPONSIVE ===================== */
+
+@media (max-width: 1024px) {
+  .topRow {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .columns {
+    justify-content: space-between;
+  }
+}
+
+@media (max-width: 768px) {
+  .columns {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .leftGroup,
+  .centerGroup,
+  .rightGroup {
+    gap: 24px;
+  }
+
+  .bottomRow {
+    justify-content: center;
+  }
+
+  .brand {
+    justify-content: center;
+  }
+}

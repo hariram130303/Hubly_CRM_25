@@ -1,0 +1,206 @@
+/* MAIN LAYOUT */
+.container {
+  display: flex;
+  height: 100vh;
+  background: #ffffff;
+  font-family: "Poppins", sans-serif;
+}
+
+/* LEFT SECTION */
+.left {
+  width: 100%;
+  padding: 40px 70px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  box-sizing: border-box;
+  justify-content: center;
+  align-items: center;
+}
+
+
+/* LOGO — ALWAYS ON TOP LEFT */
+.logoRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: absolute;     /* <— keeps logo fixed at top-left */
+  top: 40px;
+  left: 70px;
+}
+
+.logoText {
+  font-size: 26px;
+  font-weight: 600;
+  color: #184E7F;
+}
+
+/* CENTER THE REST OF THE CONTENT */
+.centerWrapper {
+  margin-top: 200px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 400px;   /* <— Fix the long width */
+  margin-left: 0;     /* keep aligned properly */
+}
+
+
+/* HEADER ROW */
+.headerRow {
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.headerRow h2 {
+  font-size: 26px;
+  font-weight: 550;
+  color: #333;
+  margin: 0;
+}
+
+.signInInstead {
+  font-size: 16px;
+  color: #4831D4;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* FORM */
+.form {
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* LABEL */
+.form label {
+  font-size: 13px;
+  margin-bottom: 4px;
+  color: #666;
+}
+
+/* INPUT */
+.form input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 6px;
+  border: 1px solid #b9b9b9;
+  margin-bottom: 15px;
+  font-size: 14px;
+}
+
+/* CHECKBOX */
+.checkboxRow {
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 10px 0;
+}
+
+.checkboxRow input {
+  width: 16px;
+  height: 16px;
+  accent-color: #000;
+  cursor: pointer;
+}
+
+.checkboxRow p {
+  font-size: 13px;
+  line-height: 1.4;
+  color: #333;
+}
+
+/* LINKS IN CHECKBOX */
+.link {
+  text-decoration: underline;
+  color: #333;
+}
+
+/* BUTTON */
+.loginBtn {
+  width: 100%;
+  max-width: 400px;
+  padding: 15px 0;
+  border-radius: 25px;
+  background: #c8c8c8;
+  color: #fff;
+  font-size: 15px;
+  border: none;
+  cursor: pointer;
+}
+
+/* FOOTER */
+.footer {
+  margin-top: 25px;
+  font-size: 11px;
+  opacity: 0.75;
+  width: 100%;
+  text-align: center;
+}
+
+.footer a {
+  color: #555;
+  text-decoration: underline;
+}
+
+
+/* RIGHT PANEL IMAGE */
+.right {
+  width: 40%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.rightImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* MOBILE RESPONSIVE */
+@media (max-width: 700px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .left {
+  width: 100%;
+  padding: 40px 70px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  box-sizing: border-box;
+  justify-content: center;
+  align-items: center;
+}
+
+.centerWrapper {
+  margin-top: 200px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 400px;   /* <— Fix the long width */
+  margin-left: 0;     /* keep aligned properly */
+}
+
+
+  .right {
+    width: 100%;
+    height: 250px;
+  }
+}

@@ -1,0 +1,126 @@
+.layout {
+  display: flex;
+  width: 100%;
+}
+
+.pageWrapper {
+  flex: 1;
+  padding: 5px 30px;
+  background: #fff;
+  font-family: "Inter", sans-serif;
+}
+
+.pageTitle {
+  font-size: 22px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.card {
+  background: #FAFBFC;
+  border-radius: 12px;
+  padding: 3px 20px;
+  width: 65%;
+  height: 550px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+}
+
+.cardTitle {
+  font-size: 15px;
+  font-weight: 500;
+  left: 40px;
+  color: #1b325f;
+  margin-bottom: 8px;
+  position: relative;
+}
+
+.cardTitle::after {
+  content: "";
+  position: absolute;
+  left: -15px;
+  bottom: -4px;      /* distance from text */
+  width: 120px;      /* match screenshot width */
+  height: 3px;
+  background-color: #184E7F;
+  border-radius: 3px;
+}
+
+.sectionDivider {
+  width: 100%;
+  height: 1px;
+  background: #dcdcdc;
+  margin-bottom: 26px;
+  margin-top: 4px;
+}
+
+.formElements {
+    margin-left: 30px;
+}
+.formRow {
+  margin-bottom: 18px;
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-size: 14px;
+  margin-bottom: 6px;
+  color: #5E5E5E;
+}
+
+.input,
+.inputDisabled {
+  width: 60%;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #3E3E3E;
+  font-size: 14px;
+  background: white;
+}
+
+.inputDisabled {
+  background: #f1f1f1;
+  color: #777;
+  cursor: not-allowed;
+}
+
+.inputWrapper {
+  position: relative;
+}
+
+.eyeBtn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  position: relative;
+  top: 5px;
+  right: 40px;
+  margin-right: 10px;
+  color: #666;
+}
+
+.eyeBtn:hover {
+  color: #184E7F;
+}
+
+
+.infoIcon {
+  position: absolute;
+  right: 250px;
+  top: 12px;
+  color: #727272;
+  cursor: pointer;
+}
+
+.saveBtn {
+  margin-top: 25px;
+  background: #184e7f;
+  color: white;
+  padding: 10px 55px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 15px;
+  float: right;
+}

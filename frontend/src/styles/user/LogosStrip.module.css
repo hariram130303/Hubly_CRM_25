@@ -1,0 +1,45 @@
+.strip {
+  width: 100%;
+  padding: 40px 0;
+  background: #eef3fa;
+  display: flex;
+  justify-content: center;
+}
+
+.inner {
+  width: 85%;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px 60px; 
+}
+
+.logoItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  opacity: 0.7;
+  font-size: 22px;
+  color: #5b7a9a;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.logoIcon {
+  font-size: 28px;
+  color: #5b7a9a; /* faded blue icon color */
+}
+
+/* ⭐ Mobile responsiveness */
+@media (max-width: 768px) {
+  .inner {
+    gap: 30px 40px;
+  }
+  .logoItem {
+    font-size: 18px;
+  }
+  .logoIcon {
+    font-size: 22px;
+  }
+}
