@@ -203,7 +203,7 @@ Basic steps:
 4. Connect MongoDB Atlas
 5. Deploy
 ```
-
+# only backend/api/ticets is working
 After deployment, update frontend:
 
 ```
