@@ -1,9 +1,4 @@
-Sure! Below is a clean, professional **README.md** you can directly use for your **CRM Project (React + Node + Express + MongoDB)**.
-I’ve written it based on your project structure (auth, tickets, messages, settings, chat widget, etc.).
-
----
-
-# 📌 **Hubly CRM – Full Stack Project**
+# **Hubly CRM – Full Stack Project**
 
 A complete Customer Relationship Management (CRM) system built using **React JS**, **Node JS**, **Express JS**, and **MongoDB**.
 This project includes authentication, ticketing system, chat widget, real-time messaging, and customizable settings.
