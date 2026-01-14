@@ -11,21 +11,40 @@ const Signup = () => {
 
   // ---- FUNCTION TO SUBMIT DATA ----
   const handleSignup = async (e) => {
-    e.preventDefault(); // stop page reload
+  e.preventDefault();
 
-    await fetch("http://localhost:5000/api/auth/signup", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        firstName,
-        lastName,
-        email,
-        password
-      })
-    });
+  try {
+    const res = await fetch(
+      "https://hubly-backend-crm.onrender.com/api/auth/signup",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          firstName,
+          lastName,
+          email,
+          password,
+        }),
+      }
+    );
 
-    alert("Account created!");
-  };
+    const data = await res.json();
+
+    if (!res.ok) {
+      alert(data.message || "Signup failed");
+      return;
+    }
+
+    alert("Account created successfully!");
+    console.log("User:", data.user);
+    console.log("Token:", data.token);
+
+  } catch (err) {
+    alert("Server error. Try again later.");
+    console.error(err);
+  }
+};
+
 
   return (
     <div className={styles.container}>

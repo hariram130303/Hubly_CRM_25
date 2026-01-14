@@ -70,6 +70,23 @@ useEffect(() => {
       day: "numeric",
     });
 
+
+  // Get initials from name (first 2 words)
+const getInitials = (name = "") => {
+  const words = name.trim().split(" ");
+  if (words.length === 1) return words[0][0].toUpperCase();
+  return (words[0][0] + words[1][0]).toUpperCase();
+};
+
+// Generate consistent random color
+const getAvatarColor = (str = "") => {
+  let hash = 0;
+  for (let i = 0; i < str.length; i++) {
+    hash = str.charCodeAt(i) + ((hash << 5) - hash);
+  }
+  return `hsl(${hash % 360}, 65%, 55%)`;
+};
+
   if (!ticket)
     return <div className={styles.emptyState}>Loading…</div>;
 
@@ -111,29 +128,46 @@ useEffect(() => {
         </div>
 
         {messages.map((msg, index) =>
-          msg.from === "user" ? (
-            <div key={index} className={styles.messageRowLeft}>
-              <img src="/Hari.jpg" className={styles.bubbleAvatar} alt="" />
-              <div className={styles.bubbleLeft}>
-                <div className={styles.bubbleMeta}>{ticket.user?.name}</div>
-                <p className={styles.bubbleText}>{msg.text}</p>
-              </div>
-            </div>
-          ) : (
-            <div key={index} className={styles.messageRowRight}>
-              <div className={styles.bubbleRight}>
-                <div className={styles.bubbleMetaRight}>
-                  Admin
-                  <span className={styles.msgStatus}>
-                    {msg.status === "delivered" ? " ✓✓" : " ✓"}
-                  </span>
-                </div>
-                <p className={styles.bubbleText}>{msg.text}</p>
-              </div>
-              <img src="/Hari.jpg" className={styles.bubbleAvatar} alt="" />
-            </div>
-          )
-        )}
+  msg.from === "user" ? (
+    <div key={index} className={styles.messageRowLeft}>
+      <div
+        className={styles.bubbleAvatar}
+        style={{
+          backgroundColor: getAvatarColor(ticket.user?.name),
+        }}
+      >
+        {getInitials(ticket.user?.name || "U")}
+      </div>
+
+      <div className={styles.bubbleLeft}>
+        <div className={styles.bubbleMeta}>
+          {ticket.user?.name || "User"}
+        </div>
+        <p className={styles.bubbleText}>{msg.text}</p>
+      </div>
+    </div>
+  ) : (
+    <div key={index} className={styles.messageRowRight}>
+      <div className={styles.bubbleRight}>
+        <div className={styles.bubbleMetaRight}>
+          Admin
+          <span className={styles.msgStatus}>
+            {msg.status === "delivered" ? " ✓✓" : " ✓"}
+          </span>
+        </div>
+        <p className={styles.bubbleText}>{msg.text}</p>
+      </div>
+
+      <div
+        className={styles.bubbleAvatar}
+        style={{ backgroundColor: "#4F46E5" }}
+      >
+        AD
+      </div>
+    </div>
+  )
+)}
+
 
         <div ref={bottomRef} />
       </div>

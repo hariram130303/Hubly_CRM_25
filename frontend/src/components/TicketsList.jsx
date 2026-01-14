@@ -1,63 +1,76 @@
-// src/components/TicketsList.jsx
 import { useEffect, useState } from "react";
+import { api } from "../api";
 import styles from "../styles/TicketsList.module.css";
 
 const TicketsList = () => {
-  const [liveTime, setLiveTime] = useState("");
+  const [tickets, setTickets] = useState([]);
 
   useEffect(() => {
-    const updateTime = () => {
-      const now = new Date();
-      const formatted = now.toLocaleTimeString([], {
-        hour: "2-digit",
-        minute: "2-digit",
-      });
-      setLiveTime(formatted);
+    const fetchTickets = async () => {
+      try {
+        const res = await api.get("/tickets");
+        setTickets(res.data);
+      } catch (err) {
+        console.error("Failed to load tickets", err);
+      }
     };
 
-    updateTime();
-    const interval = setInterval(updateTime, 1000);
-    return () => clearInterval(interval);
+    fetchTickets();
   }, []);
-  
+
   return (
-    <section className={styles.ticketsCard}>
-  {/* HEADER */}
-  <div className={styles.ticketHeaderRow}>
-    <div className={styles.ticketMetaLeft}>
-      <span className={styles.statusDot}></span>
-      <span className={styles.ticketTitle}>Ticket# 2023-00123</span>
-    </div>
+    <>
+      {tickets.map((ticket) => (
+        <section key={ticket.ticketId} className={styles.ticketsCard}>
+          {/* HEADER */}
+          <div className={styles.ticketHeaderRow}>
+            <div className={styles.ticketMetaLeft}>
+              <span className={styles.statusDot}></span>
+              <span className={styles.ticketTitle}>
+                Ticket# {ticket.ticketId}
+              </span>
+            </div>
 
-    <span className={styles.postedAt}>Posted at 12:45 AM</span>
-  </div>
+            <span className={styles.postedAt}>
+              {new Date(ticket.createdAt).toLocaleTimeString([], {
+                hour: "2-digit",
+                minute: "2-digit",
+              })}
+            </span>
+          </div>
 
-  {/* MESSAGE ROW */}
-  <div className={styles.messageRow}>
-    <p className={styles.ticketMessage}>Hey!</p>
-    <span className={styles.ticketTime}>{liveTime}</span>
-  </div>
+          {/* MESSAGE */}
+          <div className={styles.messageRow}>
+            <p className={styles.ticketMessage}>  
+              {ticket.lastMessage}
+            </p>
+          </div>
 
-  {/* SEPARATOR */}
-  <div className={styles.separator}></div>
+          <div className={styles.separator}></div>
 
-  {/* FOOTER */}
-  <div className={styles.ticketFooterRow}>
-    <div className={styles.customer}>
-      <div className={styles.customerAvatar}>
-        <img src="/Hari.jpg" alt="profile" />
-      </div>
-      <div>
-        <div className={styles.customerName}>John Snow</div>
-        <div className={styles.customerInfo}>+91-0000000000</div>
-        <div className={styles.customerInfo}>example@gmail.com</div>
-      </div>
-    </div>
+          {/* FOOTER */}
+          <div className={styles.ticketFooterRow}>
+            <div className={styles.customer}>
+              <div>
+                <div className={styles.customerName}>
+                  {ticket.user.name}
+                </div>
+                <div className={styles.customerInfo}>
+                  {ticket.user.phone || "—"}
+                </div>
+                <div className={styles.customerInfo}>
+                  {ticket.user.email}
+                </div>
+              </div>
+            </div>
 
-    <button className={styles.openTicketBtn}>Open Ticket</button>
-  </div>
-</section>
-
+            <button className={styles.openTicketBtn}>
+              Open Ticket
+            </button>
+          </div>
+        </section>
+      ))}
+    </>
   );
 };
 

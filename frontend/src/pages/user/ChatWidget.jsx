@@ -1,5 +1,5 @@
 import React, { useState,useEffect } from "react";
-import { api } from "../../api";
+import { api } from "../../api.js";
 import styles from "../../styles/user/ChatWidget.module.css";
 
 const ChatWidget = () => {
@@ -21,6 +21,7 @@ const ChatWidget = () => {
   try {
     const res = await api.get(`/messages/${id}`);
     setMessages(res.data);
+  // eslint-disable-next-line no-unused-vars
   } catch (err) {
     console.log("Could not load messages");
   }
@@ -64,10 +65,9 @@ useEffect(() => {
   /* ======================================================
       BEFORE SENDING ANY MESSAGE -> FORCE USER TO FILL FORM
   ====================================================== */
-  const handleSubmitMessage = async () => {
+ const handleSubmitMessage = async () => {
   if (!form.message.trim()) return;
 
-  // User trying to send a message before form submission
   if (!ticketId) {
     alert("Please introduce yourself first.");
     setStep("form");
@@ -75,58 +75,62 @@ useEffect(() => {
   }
 
   try {
+    // ✅ Send USER message only
     await api.post("/messages", {
       ticketId,
       from: "user",
-      text: form.message
+      text: form.message,
     });
 
-    await api.post("/messages", {
-      ticketId,
-      from: "agent",
-      text: replyMessage
-    });
-
-
-    setForm(prev => ({ ...prev, message: "" }));
+    setForm((prev) => ({ ...prev, message: "" }));
     loadMessages(ticketId);
-    loadMessages(ticketId);
-    
+
   } catch (err) {
+    console.error(err);
     alert("Failed to send");
   }
 };
 
 
   /* ======================================================
-     ON FORM SUBMIT → Move to message mode
+  ON FORM SUBMIT → Move to message mode
   ====================================================== */
 
-  const handleSubmitForm = async (e) => {
+const handleSubmitForm = async (e) => {
   e.preventDefault();
   setLoading(true);
+
+  // frontend validation
+  if (!form.name || !form.email) {
+    alert("Name & Email required");
+    setLoading(false);
+    return;
+  }
 
   try {
     const res = await api.post("/tickets", {
       name: form.name,
       email: form.email,
       phone: form.phone,
-      firstMessage: form.message || "User started chat"
     });
 
+    // 🔑 backend returns full ticket object
     const ticketId = res.data.ticketId;
 
-    // 📌 Save ticket for later sessions
+    // save ticket for future sessions
     localStorage.setItem("hubly_ticketId", ticketId);
 
     setTicketId(ticketId);
-    setStep("chat"); // 👈 switch UI to chat mode
+    setStep("chat");
+
   } catch (err) {
-    alert("Form failed");
+    console.error("Ticket creation error:", err.response?.data || err.message);
+    alert(err.response?.data?.msg || "Form failed");
   } finally {
     setLoading(false);
   }
 };
+
 
 
   return (
@@ -144,7 +148,7 @@ useEffect(() => {
               className={styles.tooltipClose}
               onClick={() => setShowTooltip(false)}
             >
-              ×
+              x
             </button>
           </div>
         </div>

@@ -18,6 +18,24 @@ const ChatList = ({ selectedChat, setSelectedChat }) => {
     fetchTickets();
   }, []);
 
+
+  // Get initials from name (first 2 words)
+const getInitials = (name = "") => {
+  const words = name.trim().split(" ");
+  if (words.length === 1) return words[0][0].toUpperCase();
+  return (words[0][0] + words[1][0]).toUpperCase();
+};
+
+// Generate consistent color from string
+const getAvatarColor = (str = "") => {
+  let hash = 0;
+  for (let i = 0; i < str.length; i++) {
+    hash = str.charCodeAt(i) + ((hash << 5) - hash);
+  }
+  const color = `hsl(${hash % 360}, 65%, 55%)`;
+  return color;
+};
+
   return (
     <div className={styles.wrapper}>
       <h1 className={styles.pageTitle}>Contact Center</h1>
@@ -29,32 +47,40 @@ const ChatList = ({ selectedChat, setSelectedChat }) => {
         )}
 
         {tickets.map((ticket) => (
-          <button
-            key={ticket._id}
-            className={`${styles.item} ${
-              selectedChat === ticket._id ? styles.itemActive : ""
-            }`}
-            onClick={() => setSelectedChat(ticket.ticketId)}
-          >
-            <img src="/Hari.jpg" alt="" className={styles.avatar} />
+  <button
+    key={ticket._id}
+    className={`${styles.item} ${
+      selectedChat === ticket._id ? styles.itemActive : ""
+    }`}
+    onClick={() => setSelectedChat(ticket.ticketId)}
+  >
+    <div
+      className={styles.avatar}
+      style={{
+        backgroundColor: getAvatarColor(ticket.user?.name),
+      }}
+    >
+      {getInitials(ticket.user?.name || "U")}
+    </div>
 
-            <div className={styles.textBlock}>
-              <div className={styles.line1}>
-                <span className={styles.userName}>
-                  {ticket.user?.name || "Unknown User"}
-                </span>
+    <div className={styles.textBlock}>
+      <div className={styles.line1}>
+        <span className={styles.userName}>
+          {ticket.user?.name || "Unknown User"}
+        </span>
 
-                {ticket.status !== "resolved" && (
-                  <span className={styles.badgeUnresolved}>New</span>
-                )}
-              </div>
+        {ticket.status !== "resolved" && (
+          <span className={styles.badgeUnresolved}>New</span>
+        )}
+      </div>
 
-              <span className={styles.preview}>
-                {ticket.lastMessage || "No messages yet"}
-              </span>
-            </div>
-          </button>
-        ))}
+      <span className={styles.preview}>
+        {ticket.lastMessage || "No messages yet"}
+      </span>
+    </div>
+  </button>
+))}
+
       </div>
     </div>
   );
